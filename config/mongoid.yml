@@ -1,0 +1,24 @@
+defaults: &defaults
+  clients:
+    default:
+      uri: <%= 'mongodb://localhost:27017/taxformdev' %>
+  options:
+    use_utc: true
+
+development:
+  <<: *defaults
+  options:
+    use_utc: true
+    log_level: debug
+
+test:
+  <<: *defaults
+  clients:
+    default:
+      uri: <%= 'mongodb://localhost:27017/taxformtest' %>
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults
